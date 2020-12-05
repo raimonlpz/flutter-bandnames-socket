@@ -178,33 +178,35 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       height: 200,
       padding: EdgeInsets.only(top: 10),
-      child: PieChart(
-        dataMap: dataMap,
-        animationDuration: Duration(milliseconds: 800),
-        chartLegendSpacing: 32,
-        chartRadius: MediaQuery.of(context).size.width / 3.2,
-        colorList: colorList,
-        initialAngleInDegree: 0,
-        chartType: ChartType.ring,
-        ringStrokeWidth: 32,
-        // centerText: "HYBRID",
-        legendOptions: LegendOptions(
-          showLegendsInRow: false,
-          legendPosition: LegendPosition.right,
-          showLegends: true,
-          legendShape: BoxShape.circle,
-          legendTextStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        chartValuesOptions: ChartValuesOptions(
-          decimalPlaces: 0,
-          showChartValueBackground: true,
-          showChartValues: true,
-          showChartValuesInPercentage: false,
-          showChartValuesOutside: false,
-        ),
-      ),
+      child: dataMap.isNotEmpty
+          ? PieChart(
+              dataMap: dataMap,
+              animationDuration: Duration(milliseconds: 800),
+              chartLegendSpacing: 32,
+              chartRadius: MediaQuery.of(context).size.width / 3.2,
+              colorList: colorList,
+              initialAngleInDegree: 0,
+              chartType: ChartType.ring,
+              ringStrokeWidth: 32,
+              // centerText: "HYBRID",
+              legendOptions: LegendOptions(
+                showLegendsInRow: false,
+                legendPosition: LegendPosition.right,
+                showLegends: true,
+                legendShape: BoxShape.circle,
+                legendTextStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              chartValuesOptions: ChartValuesOptions(
+                decimalPlaces: 0,
+                showChartValueBackground: true,
+                showChartValues: true,
+                showChartValuesInPercentage: false,
+                showChartValuesOutside: false,
+              ),
+            )
+          : SizedBox(),
     );
   }
 }
